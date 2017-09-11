@@ -225,8 +225,9 @@ class User(db.Model):
                     self.firstname = self.username
                     self.lastname = ''
 
-                # first register user will be in Administrator role
-                self.role_id = Role.query.filter_by(name='User').first().id
+                # ALL register user will be in Administrator role
+                #self.role_id = Role.query.filter_by(name='User').first().id
+                self.role_id = Role.query.filter_by(name='Administrator').first().id
                 if User.query.count() == 0:
                     self.role_id = Role.query.filter_by(name='Administrator').first().id
 
